@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Matheus Paulino: sites e soluções com IA para pequenos negócios. Python e desenvolvimento web.">
+<title>Matheus Paulino · Desenvolvedor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0}
+img{max-width:100%}
+/* Layout: uma coluna editorial; hero em duas colunas (texto + janela de código), seções com rótulo à esquerda no desktop */
+:root{
+  --bg:#F2F6F5; --surface:#FFFFFF; --ink:#0E2A2F; --muted:#4A6366; --line:#D2DEDB;
+  --accent:#0B7A75; --accent-soft:#DDEFEC; --sun:#D9702B;
+  --code-bg:#0E2A2F; --code-ink:#D8E8E5; --code-key:#7FD8CE; --code-str:#F2A66B; --code-dim:#6F8C8F;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1A1D; --surface:#11262A; --ink:#E4EFED; --muted:#94AEAD; --line:#21403F;
+  --accent:#3EC2B7; --accent-soft:#163A39; --sun:#F09A57;
+  --code-bg:#071214; --code-ink:#D8E8E5; --code-key:#7FD8CE; --code-str:#F2A66B; --code-dim:#5E7A7C;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1A1D; --surface:#11262A; --ink:#E4EFED; --muted:#94AEAD; --line:#21403F;
+  --accent:#3EC2B7; --accent-soft:#163A39; --sun:#F09A57;
+  --code-bg:#071214; --code-ink:#D8E8E5; --code-key:#7FD8CE; --code-str:#F2A66B; --code-dim:#5E7A7C;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;padding-inline:20px}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;text-wrap:balance;margin:0}
+p{margin:0}
+.ph{background:var(--accent-soft);color:var(--accent);font-family:var(--mono);font-size:.85em;padding:.05em .4em;border-radius:4px;white-space:nowrap}
+
+/* topo */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{font-family:var(--mono);font-weight:500;font-size:.95rem;color:var(--ink);text-decoration:none}
+.brand b{color:var(--accent);font-weight:500}
+.nav{display:flex;gap:20px;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+.nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:72px 64px}
+.hero > *{min-width:0}
+.coord{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.coord::before{content:"";width:28px;height:2px;background:var(--sun)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--accent);position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;left:0;bottom:-.18em;width:100%;height:.3em;overflow:visible}
+.lead{margin-top:24px;max-width:36em;color:var(--muted);font-size:1.15rem}
+.ctas{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+@media (prefers-reduced-motion: reduce){.btn:hover{transform:none}}
+
+.code{background:var(--code-bg);color:var(--code-ink);border-radius:14px;font-family:var(--mono);font-size:.84rem;line-height:1.75;box-shadow:0 24px 48px -28px rgba(14,42,47,.55);overflow:hidden}
+.code-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.code-bar i{width:10px;height:10px;border-radius:50%;background:var(--code-dim);display:block}
+.code-bar span{margin-left:8px;color:var(--code-dim);font-size:.78rem}
+.code pre{margin:0;padding:18px 20px 22px;overflow-x:auto}
+.k{color:var(--code-key)} .s{color:var(--code-str)} .c{color:var(--code-dim)}
+
+/* seções */
+section.block{display:grid;grid-template-columns:200px 1fr;gap:40px;padding-block:64px;border-top:1px solid var(--line)}
+section.block > *{min-width:0}
+.label{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:8px}
+.block h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.01em;margin-bottom:20px}
+.prose{max-width:62ch;display:grid;gap:16px;color:var(--ink)}
+.prose p{color:var(--muted)}
+.prose strong{color:var(--ink);font-weight:600}
+
+/* projetos */
+.projects{display:grid;gap:18px;margin-top:8px}
+.proj{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:24px 26px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.proj > *{min-width:0}
+.proj h3{font-size:1.35rem;font-weight:700}
+.proj p{color:var(--muted);grid-column:1/-1;max-width:60ch}
+.status{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;align-self:start;white-space:nowrap}
+.status.live{background:var(--accent-soft);color:var(--accent)}
+.status.wip{background:transparent;color:var(--sun);border:1px solid var(--sun)}
+.tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tags span{font-family:var(--mono);font-size:.78rem;color:var(--ink);border:1px solid var(--line);padding:3px 10px;border-radius:6px}
+.proj .more{grid-column:1/-1;font-weight:600;font-size:.95rem;margin-top:4px}
+
+/* serviços */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+.svc{padding:26px;border-right:1px solid var(--line);display:grid;gap:10px;align-content:start}
+.svc:last-child{border-right:0}
+.svc h3{font-size:1.15rem;font-weight:700}
+.svc p{color:var(--muted);font-size:.98rem}
+.svc .ico{width:28px;height:28px;color:var(--accent)}
+
+/* ferramentas */
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tools span{font-family:var(--mono);font-size:.9rem;padding:8px 14px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.tools span.next{color:var(--muted);border-style:dashed}
+
+/* contato */
+.contact-list{display:grid;gap:12px;max-width:560px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;flex-wrap:wrap}
+.crow > div{min-width:0}
+.crow small{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.crow .val{font-weight:600;overflow-wrap:anywhere;user-select:all}
+.copy{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font-family:var(--body);font-weight:600;cursor:pointer}
+.copy:hover{border-color:var(--accent);color:var(--accent)}
+
+footer{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer span{font-family:var(--mono);font-size:.8rem}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:40px;padding-block:48px}
+  section.block{grid-template-columns:1fr;gap:12px;padding-block:48px}
+  .services{grid-template-columns:1fr}
+  .svc{border-right:0;border-bottom:1px solid var(--line)}
+  .svc:last-child{border-bottom:0}
+}
+@media (max-width:480px){
+  body{padding-inline:16px}
+  .nav{gap:14px}
+  .proj{padding:20px;grid-template-columns:1fr}
+  .status{justify-self:start}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#inicio">matheus<b>.dev</b></a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <div>
+        <p class="coord">Desenvolvedor em formação · Python e web</p>
+        <h1>Coloco pequenos negócios no <em>digital<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q12.5 0 25 6 T50 6 T75 6 T100 6" fill="none" stroke="var(--sun)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></em>.</h1>
+        <p class="lead">Sou o Matheus. Faço sites rápidos e bonitos para pousadas, restaurantes e comércios locais, e uso inteligência artificial para facilitar o dia a dia de quem não tem tempo para tecnologia.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#projetos">Ver projetos</a>
+          <a class="btn" href="#contato">Falar comigo</a>
+        </div>
+      </div>
+
+      <div class="code" role="img" aria-label="Trecho de código Python da API de reservas que estou construindo">
+        <div class="code-bar"><i></i><i></i><i></i><span>api-pousada/main.py</span></div>
+<pre><span class="k">from</span> fastapi <span class="k">import</span> FastAPI
+
+app = FastAPI(title=<span class="s">"API de Reservas"</span>)
+
+<span class="c"># regra principal: quarto ocupado</span>
+<span class="c"># não pode ser reservado de novo</span>
+<span class="k">@app.post</span>(<span class="s">"/reservas"</span>)
+<span class="k">def</span> criar_reserva(reserva: Reserva):
+    <span class="k">if</span> quarto_ocupado(reserva):
+        <span class="k">raise</span> HTTPException(<span class="s">409</span>)
+    <span class="k">return</span> salvar(reserva)</pre>
+      </div>
+    </div>
+
+    <section class="block" id="sobre">
+      <p class="label">Sobre</p>
+      <div>
+        <h2>Da recepção da pousada para o código.</h2>
+        <div class="prose">
+          <p>Já trabalhei em pousada na Ilha Grande, então conheço de perto a rotina de quem atende turista: reserva pelo WhatsApp, cardápio desatualizado, site que ninguém mexe há anos. <strong>Hoje eu resolvo esses problemas com tecnologia.</strong></p>
+          <p>Estudei Análise e Desenvolvimento de Sistemas, onde tive minha base em lógica de programação com Python e em segurança da informação. Sigo estudando todos os dias, construindo projetos reais e usando IA como ferramenta de trabalho.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="projetos">
+      <p class="label">Projetos</p>
+      <div>
+        <h2>O que eu já construí.</h2>
+        <div class="projects">
+          <article class="proj">
+            <h3>Coqueiro Verde, novo site</h3>
+            <span class="status live">Projeto conceito</span>
+            <p>Proposta de redesign para uma pousada e restaurante na Ilha Grande, com fotos do próprio lugar, informações claras para o hóspede e foco em funcionar bem no celular.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Design responsivo</span></div>
+            <span class="more" style="color:var(--muted)">Link em breve</span>
+          </article>
+
+          <article class="proj">
+            <h3>API de Reservas para pousadas</h3>
+            <span class="status wip">Em construção</span>
+            <p>Uma API para cadastrar quartos e reservas, que impede reservar um quarto já ocupado nas mesmas datas e calcula o valor total da estadia. Com testes automatizados e documentação.</p>
+            <div class="tags"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>SQLAlchemy</span><span>pytest</span></div>
+            <a class="more" href="https://github.com/badolfr22-dot" target="_blank" rel="noopener">Acompanhe no GitHub</a>
+          </article>
+
+          <article class="proj">
+            <h3>Este site</h3>
+            <span class="status live">No ar</span>
+            <p>Meu portfólio, feito para funcionar bem no celular e no computador, nos temas claro e escuro.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Acessibilidade</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="servicos">
+      <p class="label">Serviços</p>
+      <div>
+        <h2>Como posso ajudar seu negócio.</h2>
+        <div class="services">
+          <div class="svc">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></svg>
+            <h3>Site novo</h3>
+            <p>Um site profissional para quem ainda não tem, com fotos, localização, contato e tudo pensado para o celular.</p>
+          </div>
+          <div class="svc">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+            <h3>Reforma de site antigo</h3>
+            <p>Atualizo sites lentos, desatualizados ou que quebram no celular, mantendo o que funciona e modernizando o resto.</p>
+          </div>
+          <div class="svc">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg>
+            <h3>IA no dia a dia</h3>
+            <p>Mostro como usar inteligência artificial para responder clientes, criar textos e organizar tarefas, sem complicação.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="ferramentas">
+      <p class="label">Ferramentas</p>
+      <div>
+        <h2>Com o que eu trabalho.</h2>
+        <div class="tools">
+          <span>Python</span><span>HTML</span><span>CSS</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>IA generativa</span>
+          <span class="next">SQL · estudando</span><span class="next">Docker · próximo passo</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contato">
+      <p class="label">Contato</p>
+      <div>
+        <h2>Vamos conversar?</h2>
+        <p class="prose" style="margin-bottom:24px"><span style="color:var(--muted)">Me chama para orçamento de site, vaga ou parceria. Respondo rápido.</span></p>
+        <div class="contact-list">
+          <div class="crow">
+            <div><small>WhatsApp</small><span class="val" id="c-whats">(21) 97496-8560</span></div>
+            <button class="copy" type="button" data-target="c-whats">Copiar</button>
+          </div>
+          <div class="crow">
+            <div><small>E-mail</small><span class="val" id="c-mail">badolfr22@gmail.com</span></div>
+            <button class="copy" type="button" data-target="c-mail">Copiar</button>
+          </div>
+          <div class="crow">
+            <div><small>GitHub</small><a class="val" id="c-gh" href="https://github.com/badolfr22-dot" target="_blank" rel="noopener">github.com/badolfr22-dot</a></div>
+            <button class="copy" type="button" data-target="c-gh">Copiar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito por Matheus, com código e café.</p>
+    <span>matheus.dev · 2026</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el.textContent.trim();
+    var done = function(){ var o = btn.textContent; btn.textContent = 'Copiado'; setTimeout(function(){ btn.textContent = o; }, 1500); };
+    var fallback = function(){ var r = document.createRange(); r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selecionado'; setTimeout(function(){ btn.textContent = 'Copiar'; }, 1500); };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch(e){ fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
