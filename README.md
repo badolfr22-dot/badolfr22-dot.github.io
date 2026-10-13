@@ -6,7 +6,7 @@ Meu site pessoal, publicado com GitHub Pages.
 
 ## Sobre
 
-Sou desenvolvedor em formação, com base em Python e desenvolvimento web. Faço sites para pequenos negócios, como pousadas, restaurantes e comércios locais, e uso inteligência artificial para facilitar o dia a dia de quem não tem tempo para tecnologia.
+Sou desenvolvedor em formação, com base em Python e desenvolvimento web. Faço sites para pequenos negócios e profissionais liberais, como escritórios, pousadas, restaurantes e comércios locais, e uso inteligência artificial para facilitar o dia a dia de quem não tem tempo para tecnologia.
 
 ## Sobre este projeto
 

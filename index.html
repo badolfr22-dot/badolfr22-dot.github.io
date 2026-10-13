@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Matheus Paulino: sites e soluções com IA para pequenos negócios. Python e desenvolvimento web.">
+<meta name="description" content="Matheus Paulino: sites e soluções com IA para pequenos negócios e profissionais liberais. Python e desenvolvimento web.">
 <title>Matheus Paulino · Desenvolvedor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +91,10 @@ section.block > *{min-width:0}
 .tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .tags span{font-family:var(--mono);font-size:.78rem;color:var(--ink);border:1px solid var(--line);padding:3px 10px;border-radius:6px}
 .proj .more{grid-column:1/-1;font-weight:600;font-size:.95rem;margin-top:4px}
+.shot{grid-column:1/-1;display:block;margin-bottom:12px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:1200/712;transition:transform .4s ease}
+.shot:hover img{transform:scale(1.015)}
+@media (prefers-reduced-motion: reduce){.shot:hover img{transform:none}}
 
 /* serviços */
 .services{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
@@ -150,7 +154,7 @@ footer span{font-family:var(--mono);font-size:.8rem}
       <div>
         <p class="coord">Desenvolvedor em formação · Python e web</p>
         <h1>Coloco pequenos negócios no <em>digital<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q12.5 0 25 6 T50 6 T75 6 T100 6" fill="none" stroke="var(--sun)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></em>.</h1>
-        <p class="lead">Sou o Matheus. Faço sites rápidos e bonitos para pousadas, restaurantes e comércios locais, e uso inteligência artificial para facilitar o dia a dia de quem não tem tempo para tecnologia.</p>
+        <p class="lead">Sou o Matheus. Faço sites rápidos e bonitos para pequenos negócios e profissionais liberais, como escritórios, pousadas, restaurantes e comércios locais, e uso inteligência artificial para facilitar o dia a dia de quem não tem tempo para tecnologia.</p>
         <div class="ctas">
           <a class="btn primary" href="#projetos">Ver projetos</a>
           <a class="btn" href="#contato">Falar comigo</a>
@@ -190,19 +194,17 @@ app = FastAPI(title=<span class="s">"API de Reservas"</span>)
         <h2>O que eu já construí.</h2>
         <div class="projects">
           <article class="proj">
+            <a class="shot" href="/renan-mendes-advocacia/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <picture>
+                <source srcset="img/renan-mendes-advocacia.webp" type="image/webp">
+                <img src="img/renan-mendes-advocacia.jpg" width="1200" height="712" loading="lazy" alt="">
+              </picture>
+            </a>
             <h3>Renan Mendes Advocacia</h3>
             <span class="status live">No ar</span>
             <p>Meu primeiro projeto entregue a um cliente: o site institucional de um advogado do Rio de Janeiro, com áreas de atuação, apresentação, registros de atuação e contato direto pelo WhatsApp. Identidade visual construída a partir da logo do escritório, com foco em funcionar bem no celular.</p>
             <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Design responsivo</span><span>Acessibilidade</span><span>GitHub Pages</span></div>
             <a class="more" href="/renan-mendes-advocacia/" target="_blank" rel="noopener">Ver o site no ar</a>
-          </article>
-
-          <article class="proj">
-            <h3>Coqueiro Verde, novo site</h3>
-            <span class="status live">Projeto conceito</span>
-            <p>Proposta de redesign para uma pousada e restaurante na Ilha Grande, com fotos do próprio lugar, informações claras para o hóspede e foco em funcionar bem no celular.</p>
-            <div class="tags"><span>HTML</span><span>CSS</span><span>Design responsivo</span></div>
-            <span class="more" style="color:var(--muted)">Link em breve</span>
           </article>
 
           <article class="proj">
@@ -252,7 +254,7 @@ app = FastAPI(title=<span class="s">"API de Reservas"</span>)
       <div>
         <h2>Com o que eu trabalho.</h2>
         <div class="tools">
-          <span>Python</span><span>HTML</span><span>CSS</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>IA generativa</span>
+          <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>IA generativa</span>
           <span class="next">SQL · estudando</span><span class="next">Docker · próximo passo</span>
         </div>
       </div>
