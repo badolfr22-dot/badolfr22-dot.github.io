@@ -1,0 +1,114 @@
+/* ==========================================================================
+   HERO — parte 1 do briefing
+   Texto à esquerda, foto à direita, marca d'água do símbolo ao fundo
+   e "↓ ROLE PARA CONHECER" no rodapé da seção.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100svh - var(--altura-header));
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--esp-7) var(--esp-6);
+}
+
+.hero__interno {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--esp-8);
+}
+
+/* ---- Coluna de texto ---- */
+.hero__rotulo {
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--esp-5);
+}
+
+.hero__titulo {
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-regular);
+  line-height: var(--altura-linha-titulo);
+  letter-spacing: -0.005em;
+  margin-bottom: var(--esp-5);
+  max-width: 14ch;
+}
+
+.hero__texto {
+  color: var(--cor-texto-suave);
+  max-width: 34ch;
+  margin-bottom: var(--esp-6);
+}
+
+/* ---- Foto ---- */
+.hero__foto {
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
+}
+
+.hero__foto img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* ---- Marca d'água ---- */
+.hero__marca-dagua {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: -12rem;
+  width: clamp(200px, 24vw, 340px);
+  transform: translateX(-50%);
+  opacity: 0.05;
+  pointer-events: none;
+  --simbolo-escuro: var(--cor-preto);
+  --simbolo-ouro: var(--cor-preto);
+}
+
+/* ---- Role para conhecer ---- */
+.hero__rolar {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--esp-7);
+}
+
+.hero__rolar a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--esp-3);
+  color: var(--cor-texto-suave);
+  transition: color var(--transicao);
+}
+
+.hero__rolar a:hover {
+  color: var(--cor-texto);
+}
+
+/* ---- Celular ---- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: var(--esp-5);
+  }
+
+  .hero__interno {
+    grid-template-columns: 1fr;
+    gap: var(--esp-7);
+  }
+
+  .hero__foto {
+    justify-self: stretch;
+    max-width: none;
+  }
+
+  .hero__titulo {
+    max-width: none;
+  }
+}

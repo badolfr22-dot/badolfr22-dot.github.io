@@ -1,0 +1,63 @@
+/* ==========================================================================
+   DESIGN SYSTEM — tokens
+   Fonte de verdade de cores, tipografia, espaçamento e medidas do site.
+   Cores extraídas da logo oficial (logoadvogado.jpeg).
+   ========================================================================== */
+
+:root {
+  /* ---- Cores da marca (amostradas da logo) ---- */
+  --cor-preto: #111111;        /* barras e colunas do símbolo, nome "RENAN MENDES" */
+  --cor-dourado: #A7874E;      /* filetes dourados do símbolo e linha sob o nome */
+  --cor-cinza: #696969;        /* "ADVOCACIA ESPECIALIZADA" */
+  --cor-branco: #FFFFFF;       /* fundo da logo */
+
+  /* ---- Papéis (usar estes nos componentes, não as cores cruas) ---- */
+  --cor-fundo: var(--cor-branco);
+  --cor-texto: var(--cor-preto);
+  --cor-texto-suave: var(--cor-cinza);
+  --cor-destaque: var(--cor-dourado);
+  --cor-linha: var(--cor-dourado);
+
+  /* ---- Tipografia ----
+     A logo é composta numa serifa no estilo Times, em caixa alta e com
+     espaçamento largo entre letras. "Tinos" é a versão web dessa serifa. */
+  --fonte-principal: "Tinos", "Times New Roman", Times, serif;
+
+  --peso-regular: 400;
+  --peso-forte: 700;
+
+  /* Escala fluida: mínimo no celular, máximo no desktop */
+  --texto-xs: 0.8125rem;                               /* 13px — rótulos, "role para conhecer" */
+  --texto-sm: 0.9375rem;                               /* 15px — menu, botões */
+  --texto-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --texto-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --texto-xl: clamp(2.25rem, 1.6rem + 3vw, 4.25rem);   /* título do hero */
+
+  --altura-linha: 1.6;
+  --altura-linha-titulo: 1.1;
+
+  /* Espaçamento entre letras da logo: largo nos títulos, mais largo nos rótulos */
+  --tracking-titulo: 0.08em;
+  --tracking-rotulo: 0.2em;
+
+  /* ---- Espaçamento ---- */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8: 4rem;
+  --esp-9: 6rem;
+
+  /* ---- Layout ---- */
+  --largura-max: 1200px;
+  --margem-lateral: clamp(1rem, 4vw, 3rem);
+  --altura-header: 8rem; /* altura real do header (menu + botão) */
+
+  /* ---- Bordas e movimento ---- */
+  --borda-fina: 1px;
+  --borda-filete: 2px;
+  --transicao: 200ms ease;
+}

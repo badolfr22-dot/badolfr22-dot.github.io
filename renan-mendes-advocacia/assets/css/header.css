@@ -1,0 +1,155 @@
+/* ==========================================================================
+   HEADER — parte 1 do briefing
+   [ RENAN MENDES ]                ÁREAS   SOBRE   CONTATO
+                                                [ FALAR CONOSCO ]
+   ========================================================================== */
+
+.header {
+  position: relative;
+  z-index: 10;
+  padding-block: var(--esp-5);
+}
+
+.header__interno {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--esp-5);
+}
+
+.header__marca {
+  font-size: var(--texto-lg);
+  letter-spacing: var(--tracking-rotulo);
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* Coluna da direita: menu em cima, botão "Falar conosco" embaixo */
+.header__navegacao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--esp-5);
+}
+
+.menu {
+  display: flex;
+  gap: var(--esp-6);
+}
+
+.menu__link {
+  position: relative;
+  font-size: var(--texto-sm);
+  letter-spacing: var(--tracking-rotulo);
+  text-transform: uppercase;
+  padding-block: var(--esp-1);
+}
+
+.menu__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--borda-fina);
+  background: var(--cor-linha);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transicao);
+}
+
+.menu__link:hover::after,
+.menu__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Botão do menu no celular (escondido no desktop) */
+.header__abrir-menu {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__abrir-menu-linhas,
+.header__abrir-menu-linhas::before,
+.header__abrir-menu-linhas::after {
+  display: block;
+  width: 1.5rem;
+  height: var(--borda-filete);
+  background: var(--cor-texto);
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+.header__abrir-menu-linhas {
+  position: relative;
+}
+
+.header__abrir-menu-linhas::before,
+.header__abrir-menu-linhas::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.header__abrir-menu-linhas::before { top: -0.45rem; }
+.header__abrir-menu-linhas::after  { top: 0.45rem; }
+
+.header__abrir-menu[aria-expanded="true"] .header__abrir-menu-linhas {
+  background: transparent;
+}
+
+.header__abrir-menu[aria-expanded="true"] .header__abrir-menu-linhas::before {
+  transform: translateY(0.45rem) rotate(45deg);
+}
+
+.header__abrir-menu[aria-expanded="true"] .header__abrir-menu-linhas::after {
+  transform: translateY(-0.45rem) rotate(-45deg);
+}
+
+/* ---- Celular ---- */
+@media (max-width: 768px) {
+  .header__interno {
+    align-items: center;
+  }
+
+  .header__marca {
+    font-size: var(--texto-base);
+  }
+
+  .header__abrir-menu {
+    display: inline-flex;
+  }
+
+  .header__navegacao {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    align-items: stretch;
+    padding: var(--esp-5) var(--margem-lateral) var(--esp-6);
+    background: var(--cor-fundo);
+    border-bottom: var(--borda-fina) solid var(--cor-linha);
+    display: none;
+  }
+
+  .header__navegacao.esta-aberta {
+    display: flex;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: var(--esp-2);
+  }
+
+  .menu__link {
+    display: block;
+    padding-block: var(--esp-3);
+  }
+
+  .header__navegacao .botao {
+    width: 100%;
+  }
+}

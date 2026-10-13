@@ -1,0 +1,51 @@
+/* ==========================================================================
+   ATUAÇÃO NACIONAL — parte 6 do briefing
+   Bloco centralizado: rótulo, título, mapa do Brasil e frase final.
+   ========================================================================== */
+
+.nacional__interno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nacional__rotulo {
+  color: var(--cor-destaque);
+  margin-bottom: var(--esp-4);
+}
+
+.nacional__titulo {
+  max-width: 16em;
+}
+
+.nacional__mapa {
+  width: min(100%, 360px);
+  height: auto;
+  margin-block: var(--esp-8);
+  overflow: visible;
+}
+
+.nacional__mapa-contorno {
+  fill: none;
+  stroke: var(--cor-texto);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.nacional__mapa-rio {
+  fill: var(--cor-destaque);
+}
+
+.nacional__mapa-rio-anel {
+  fill: none;
+  stroke: var(--cor-destaque);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.nacional__texto {
+  color: var(--cor-texto-suave);
+  max-width: 30ch;
+}

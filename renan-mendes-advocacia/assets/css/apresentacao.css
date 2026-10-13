@@ -1,0 +1,21 @@
+/* ==========================================================================
+   APRESENTAÇÃO — parte 2 do briefing
+   Bloco centralizado entre dois filetes: título em caixa alta + texto.
+   ========================================================================== */
+
+.apresentacao__interno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--esp-6);
+  text-align: center;
+}
+
+.apresentacao__titulo {
+  max-width: 20em;
+}
+
+.apresentacao__texto {
+  max-width: 52ch;
+  color: var(--cor-texto-suave);
+}

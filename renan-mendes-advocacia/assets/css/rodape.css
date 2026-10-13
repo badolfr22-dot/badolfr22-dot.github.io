@@ -1,0 +1,99 @@
+/* ==========================================================================
+   RODAPÉ — parte 8 do briefing
+   Marca + OAB, colunas de áreas e contato, localização,
+   linha divisória, copyright e política de privacidade.
+   ========================================================================== */
+
+.rodape {
+  padding-block: var(--esp-8) var(--esp-6);
+}
+
+.rodape__topo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-7);
+}
+
+.rodape__colunas {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: var(--esp-9);
+}
+
+.rodape__marca-nome {
+  font-size: var(--texto-lg);
+  letter-spacing: var(--tracking-rotulo);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.rodape__marca-desc {
+  margin-top: var(--esp-2);
+  color: var(--cor-texto-suave);
+}
+
+.rodape__oab {
+  margin-top: var(--esp-5);
+  font-size: var(--texto-sm);
+}
+
+.rodape__local {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.rodape__coluna-titulo {
+  margin-bottom: var(--esp-4);
+  font-weight: var(--peso-regular);
+  color: var(--cor-destaque);
+}
+
+.rodape__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  font-size: var(--texto-sm);
+}
+
+.rodape__lista a {
+  overflow-wrap: anywhere;
+  transition: color var(--transicao);
+}
+
+.rodape__lista a:hover {
+  color: var(--cor-destaque);
+}
+
+.rodape__divisoria {
+  margin-block: var(--esp-7) var(--esp-5);
+  height: var(--borda-fina);
+  border: 0;
+  background: var(--cor-linha);
+  opacity: 0.6;
+}
+
+.rodape__base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--esp-3);
+  font-size: var(--texto-xs);
+  color: var(--cor-texto-suave);
+}
+
+.rodape__base a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transicao);
+}
+
+.rodape__base a:hover {
+  color: var(--cor-texto);
+}
+
+@media (max-width: 560px) {
+  .rodape__colunas {
+    grid-template-columns: 1fr;
+    gap: var(--esp-6);
+  }
+}

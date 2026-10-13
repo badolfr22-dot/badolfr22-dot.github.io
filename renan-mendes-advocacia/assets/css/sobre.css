@@ -1,0 +1,66 @@
+/* ==========================================================================
+   SOBRE RENAN MENDES — parte 4 do briefing
+   Foto P&B à esquerda; título, subtítulo, texto e botão à direita;
+   símbolo da marca parcialmente visível ao fundo.
+   ========================================================================== */
+
+.sobre {
+  position: relative;
+  overflow: hidden;
+}
+
+.sobre__interno {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  align-items: center;
+  gap: var(--esp-9);
+}
+
+.sobre__foto img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.sobre__subtitulo {
+  margin-top: var(--esp-3);
+  color: var(--cor-destaque);
+}
+
+.sobre__texto {
+  margin-block: var(--esp-6) var(--esp-7);
+  color: var(--cor-texto-suave);
+  max-width: 48ch;
+}
+
+.sobre__texto p + p {
+  margin-top: var(--esp-4);
+}
+
+/* Símbolo cortado pela borda direita da seção */
+.sobre__marca-dagua {
+  position: absolute;
+  z-index: 0;
+  right: -6rem;
+  bottom: -4rem;
+  width: clamp(220px, 26vw, 380px);
+  opacity: 0.05;
+  pointer-events: none;
+  --simbolo-escuro: var(--cor-preto);
+  --simbolo-ouro: var(--cor-preto);
+}
+
+@media (max-width: 900px) {
+  .sobre__interno {
+    grid-template-columns: 1fr;
+    gap: var(--esp-7);
+  }
+
+  .sobre__foto {
+    max-width: 420px;
+  }
+}

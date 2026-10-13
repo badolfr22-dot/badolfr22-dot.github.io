@@ -1,0 +1,60 @@
+/* ==========================================================================
+   ÁREAS DE ATUAÇÃO — parte 3 do briefing
+   Título + subtítulo à esquerda; três colunas numeradas 01 / 02 / 03.
+   ========================================================================== */
+
+.areas__cabecalho {
+  margin-bottom: var(--esp-8);
+}
+
+.areas__subtitulo {
+  margin-top: var(--esp-3);
+  color: var(--cor-texto-suave);
+}
+
+.areas__lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--esp-7);
+}
+
+.area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--esp-4);
+}
+
+.area__numero {
+  color: var(--cor-destaque);
+  letter-spacing: var(--tracking-titulo);
+}
+
+.area__titulo {
+  font-size: var(--texto-lg);
+  font-weight: var(--peso-regular);
+  line-height: 1.25;
+  letter-spacing: var(--tracking-titulo);
+  text-transform: uppercase;
+}
+
+.area__texto {
+  flex: 1;
+  color: var(--cor-texto-suave);
+}
+
+.area .link-seta {
+  margin-top: var(--esp-2);
+}
+
+/* ---- Tablet e celular: uma coluna ---- */
+@media (max-width: 900px) {
+  .areas__lista {
+    grid-template-columns: 1fr;
+    gap: var(--esp-8);
+  }
+
+  .areas__cabecalho {
+    margin-bottom: var(--esp-7);
+  }
+}

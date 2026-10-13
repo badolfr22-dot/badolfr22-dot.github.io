@@ -1,0 +1,38 @@
+/* ==========================================================================
+   CHAMADA FINAL — parte 7 do briefing
+   Pergunta, texto, botão do WhatsApp, telefone e o símbolo da marca.
+   ========================================================================== */
+
+.contato__interno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contato__titulo {
+  max-width: 14em;
+}
+
+.contato__texto {
+  margin-block: var(--esp-5) var(--esp-7);
+  color: var(--cor-texto-suave);
+  max-width: 32ch;
+}
+
+.contato__telefone {
+  margin-top: var(--esp-5);
+  font-size: var(--texto-lg);
+  letter-spacing: var(--tracking-titulo);
+  transition: color var(--transicao);
+}
+
+.contato__telefone:hover {
+  color: var(--cor-destaque);
+}
+
+.contato__simbolo {
+  width: 3.5rem;
+  height: auto;
+  margin-top: var(--esp-8);
+}
