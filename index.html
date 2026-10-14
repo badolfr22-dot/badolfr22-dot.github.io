@@ -94,6 +94,9 @@ section.block > *{min-width:0}
 .shot{grid-column:1/-1;display:block;margin-bottom:12px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
 .shot img{display:block;width:100%;height:auto;aspect-ratio:1200/712;transition:transform .4s ease}
 .shot:hover img{transform:scale(1.015)}
+.shot--fluxo{background:#1b1b1d;border-color:#2a2a2e}
+.shot--fluxo img{aspect-ratio:1630/360}
+.shot--fluxo:hover img{transform:none}
 @media (prefers-reduced-motion: reduce){.shot:hover img{transform:none}}
 
 /* serviços */
@@ -208,6 +211,20 @@ app = FastAPI(title=<span class="s">"API de Reservas"</span>)
           </article>
 
           <article class="proj">
+            <div class="shot shot--fluxo" aria-hidden="true">
+              <picture>
+                <source srcset="img/triagem-juridica-n8n.webp" type="image/webp">
+                <img src="img/triagem-juridica-n8n.jpg" width="1630" height="360" loading="lazy" alt="">
+              </picture>
+            </div>
+            <h3>Triagem jurídica com IA</h3>
+            <span class="status live">Funcionando</span>
+            <p>Automação feita no n8n para um escritório de advocacia. O cliente conta o caso num formulário, o Claude identifica a área (criminal, previdenciário ou juizado especial cível) e escreve um resumo, e o advogado recebe tudo organizado por e-mail. O cliente recebe na hora uma confirmação de que o caso chegou.</p>
+            <div class="tags"><span>n8n</span><span>Claude (IA)</span><span>Gmail</span><span>Automação</span><span>Formulários</span></div>
+            <a class="more" href="#contato">Peça uma demonstração</a>
+          </article>
+
+          <article class="proj">
             <h3>API de Reservas para pousadas</h3>
             <span class="status wip">Em construção</span>
             <p>Uma API para cadastrar quartos e reservas, que impede reservar um quarto já ocupado nas mesmas datas e calcula o valor total da estadia. Com testes automatizados e documentação.</p>
@@ -254,7 +271,7 @@ app = FastAPI(title=<span class="s">"API de Reservas"</span>)
       <div>
         <h2>Com o que eu trabalho.</h2>
         <div class="tools">
-          <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>IA generativa</span>
+          <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>n8n</span><span>IA generativa</span>
           <span class="next">SQL · estudando</span><span class="next">Docker · próximo passo</span>
         </div>
       </div>
