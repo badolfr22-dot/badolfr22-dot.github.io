@@ -1,0 +1,157 @@
+{
+  "name": "Triagem de casos jurídicos",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Conte seu caso",
+        "formDescription": "Preencha os dados abaixo e entraremos em contato.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Nome completo",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "WhatsApp",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "E-mail",
+              "fieldType": "email",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Conte seu caso",
+              "fieldType": "textarea",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Recebemos seu caso! Em breve entraremos em contato."
+            }
+          }
+        }
+      },
+      "id": "6400288b-b153-4189-ab6f-49f2b1fb5afd",
+      "name": "Formulário de Contato",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-sonnet-5-5"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Você é um assistente de triagem de um escritório de advocacia. Classifique o caso abaixo em exatamente UMA das áreas: Criminal, Previdenciário ou Juizado Especial Cível. Depois escreva um resumo de exatamente 3 linhas.\n\nResponda neste formato, sem nada além disso:\nÁREA: <área>\nRESUMO:\n<linha 1>\n<linha 2>\n<linha 3>\n\nCaso:\n{{ $json[\"Conte seu caso\"] }}"
+            }
+          ]
+        },
+        "options": {
+          "includeMergedResponse": true,
+          "maxTokens": 500
+        }
+      },
+      "id": "6948663c-797d-4198-8249-ab15716afbe3",
+      "name": "Classificar e resumir caso",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "advogado@exemplo.com.br",
+        "subject": "=Novo caso: {{ $(\"Formulário de Contato\").item.json[\"Nome completo\"] }}",
+        "emailType": "text",
+        "message": "=Novo caso recebido pelo formulário.\n\nCliente: {{ $(\"Formulário de Contato\").item.json[\"Nome completo\"] }}\nWhatsApp: {{ $(\"Formulário de Contato\").item.json[\"WhatsApp\"] }}\nE-mail: {{ $(\"Formulário de Contato\").item.json[\"E-mail\"] }}\n\nClassificação e resumo (IA):\n{{ $(\"Classificar e resumir caso\").item.json.merged_response }}\n\nRelato original:\n{{ $(\"Formulário de Contato\").item.json[\"Conte seu caso\"] }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "0f7defe0-948a-44a8-93d2-e81adf0313e6",
+      "name": "E-mail para o advogado",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        448,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $(\"Formulário de Contato\").item.json[\"E-mail\"] }}",
+        "subject": "Recebemos o seu caso",
+        "emailType": "text",
+        "message": "=Olá, {{ $(\"Formulário de Contato\").item.json[\"Nome completo\"] }}!\n\nRecebemos o seu relato e ele já foi encaminhado ao advogado responsável. Entraremos em contato em breve pelo WhatsApp informado ({{ $(\"Formulário de Contato\").item.json[\"WhatsApp\"] }}) ou por este e-mail.\n\nAtenciosamente,\nEquipe jurídica",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "ef3b7663-d025-4b5a-9f0d-204c6cc428ca",
+      "name": "E-mail de confirmação para o cliente",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        672,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Formulário de Contato": {
+      "main": [
+        [
+          {
+            "node": "Classificar e resumir caso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classificar e resumir caso": {
+      "main": [
+        [
+          {
+            "node": "E-mail para o advogado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "E-mail para o advogado": {
+      "main": [
+        [
+          {
+            "node": "E-mail de confirmação para o cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodeGroups": [],
+  "tags": []
+}
