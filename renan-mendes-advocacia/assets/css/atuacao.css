@@ -25,6 +25,17 @@
   object-fit: cover;
 }
 
+/* Foto de imprensa: ocupa a linha inteira, acima das duas fotos da entrevista */
+.registro--destaque {
+  grid-column: 1 / -1;
+}
+
+/* Mostra o quadro inteiro, sem cortar a faixa do telejornal */
+.registro--destaque img {
+  height: auto;
+  aspect-ratio: 1500 / 840;
+}
+
 .registro figcaption {
   margin-top: var(--esp-3);
   color: var(--cor-texto-suave);
@@ -39,5 +50,9 @@
   .registro img {
     height: auto;
     aspect-ratio: 676 / 604;
+  }
+
+  .registro--destaque img {
+    aspect-ratio: 1500 / 840;
   }
 }
