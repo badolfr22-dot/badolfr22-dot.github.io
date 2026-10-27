@@ -183,7 +183,7 @@ section.block .wrap > *{min-width:0}
 .term .res.no{background:rgba(240,90,70,.15);color:#FF8A73}
 
 /* serviços */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .svc{position:relative;padding:28px 26px;background:var(--steel);border:1px solid var(--line);border-radius:10px;display:grid;gap:12px;align-content:start;overflow:hidden;transition:transform .3s,border-color .3s}
 .svc::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--signal);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .svc:hover{transform:translateY(-4px);border-color:rgba(244,196,48,.35)}
@@ -225,18 +225,74 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
 .rv{transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0ms)}
 .rv.wait{opacity:0;transform:translateY(34px)}
 
+/* laboratório */
+.note{font-family:var(--mono);font-size:.8rem;line-height:1.6;color:var(--muted);border-left:2px solid var(--signal);padding:8px 14px;margin-bottom:24px;max-width:66ch;background:var(--steel);border-radius:0 6px 6px 0}
+.note b{color:var(--ink);font-weight:500}
+.lab{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:stretch}
+.lab > *{min-width:0}
+.panel{padding:24px;background:var(--steel);border:1px solid var(--line);border-radius:10px;display:grid;gap:14px;align-content:start}
+.mini{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);display:block}
+.panel textarea{width:100%;font:inherit;font-size:.95rem;line-height:1.5;color:var(--ink);background:var(--night);border:1px solid var(--line);border-radius:8px;padding:12px 14px;resize:vertical;min-height:110px}
+.panel textarea::placeholder{color:#5F6B78}
+.panel textarea:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .78rem var(--mono);color:var(--ink);background:var(--night);border:1px solid var(--line);border-radius:999px;padding:8px 13px;cursor:pointer;transition:border-color .2s,color .2s}
+.chip:hover{border-color:var(--signal);color:var(--signal)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.steps li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--night);font-size:.92rem;transition:border-color .3s,background .3s}
+.steps li b{font:500 .7rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.steps li.on{border-color:var(--signal);background:var(--signal-soft)}
+.steps li.on b{color:var(--signal)}
+.steps li.done b{color:#5EDB8A}
+.panel .btn{justify-content:center}
+.btn[disabled]{opacity:.55;cursor:wait;transform:none}
+.lab .code{margin-top:0;display:flex;flex-direction:column}
+.lab .code pre{flex:1;min-height:280px;white-space:pre-wrap;word-break:break-word;font-size:.8rem}
+
+/* orçamento */
+.calc{display:grid;gap:24px}
+.calc fieldset{border:0;margin:0;padding:0;display:grid;gap:12px;min-width:0}
+.calc legend{padding:0;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.extras{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opt{position:relative;display:grid;gap:4px;padding:16px 18px;background:var(--steel);border:1px solid var(--line);border-radius:10px;cursor:pointer;transition:border-color .2s,background .2s}
+.opt > *{min-width:0}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt strong{font-weight:600}
+.opt small{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.opt:hover{border-color:rgba(244,196,48,.45)}
+.opt:has(input:checked){border-color:var(--signal);background:var(--signal-soft)}
+.opt:has(input:focus-visible){outline:2px solid var(--signal);outline-offset:3px}
+.extras .opt{grid-template-columns:auto 1fr;align-items:center;gap:12px}
+.box{width:20px;height:20px;border:1.5px solid var(--muted);border-radius:5px;display:grid;place-items:center;transition:background .2s,border-color .2s}
+.opt:has(input:checked) .box{background:var(--signal);border-color:var(--signal)}
+.opt:has(input:checked) .box::after{content:"";width:9px;height:5px;border:2px solid var(--night);border-top:0;border-right:0;transform:translate(0,-1px) rotate(-45deg)}
+.est small{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.est strong{display:block;font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,2.8rem);line-height:1.05;color:var(--signal);margin-top:6px}
+.est span{display:block;color:var(--muted);font-size:.95rem;margin-top:6px}
+.calc .signal-box{margin-bottom:0}
+.calc-foot{font-size:.85rem;color:var(--muted)}
+
+/* imagem do fluxo n8n */
+.shot--fluxo{aspect-ratio:1630/360;background:#1b1b1d}
+.shot--fluxo img{object-fit:contain}
+.shot--fluxo:hover img{transform:none;filter:none}
+
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr;padding-block:56px 140px;gap:44px}
   .hero::after{background:linear-gradient(180deg,rgba(6,8,11,.82) 0%,rgba(6,8,11,.55) 55%,rgba(6,8,11,.2) 100%)}
   .dossier{justify-self:start;width:min(100%,340px)}
   section.block .wrap{grid-template-columns:1fr;gap:18px;padding-block:64px}
   .services{grid-template-columns:1fr}
+  .lab{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
 }
 @media (max-width:560px){
   .proj{grid-template-columns:1fr;padding:22px}
   .case,.proj p,.tags,.proj .more,.code,.shot{grid-column:1/-1}
   .status{justify-self:start}
   .signal-box{grid-template-columns:1fr}
+  .extras{grid-template-columns:1fr}
   .brand span{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -274,7 +330,9 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
     <nav class="nav" aria-label="Seções">
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
+      <a href="#laboratorio">Laboratório</a>
       <a href="#servicos">Serviços</a>
+      <a href="#orcamento">Orçamento</a>
       <a class="pill" href="#contato"><svg viewBox="28 20 144 66" aria-hidden="true"><path d="M100 36 L104 36 L107 24 L110 38 Q130 38 172 22 Q160 34 162 44 Q150 40 146 52 Q136 46 128 58 Q116 56 108 74 L100 84 L92 74 Q84 56 72 58 Q64 46 54 52 Q50 40 38 44 Q40 34 28 22 Q70 38 90 38 L93 24 L96 36 Z" fill="currentColor"/></svg>Contato</a>
     </nav>
   </div>
@@ -352,6 +410,22 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
 
           <article class="proj rv">
             <span class="case">#02</span>
+            <h3>Renan Mendes Advocacia</h3>
+            <span class="status client">✓ Cliente real</span>
+            <a class="shot" href="renan-mendes-advocacia/" target="_blank" rel="noopener" aria-label="Abrir o site Renan Mendes Advocacia">
+              <picture>
+                <source srcset="img/renan-mendes-advocacia.webp" type="image/webp">
+                <img src="img/renan-mendes-advocacia.jpg" width="1200" height="712" alt="Página inicial do site Renan Mendes Advocacia" loading="lazy">
+              </picture>
+              <span class="shot-cta">Ver site no ar →</span>
+            </a>
+            <p>Site institucional de um advogado do Rio de Janeiro: áreas de atuação, apresentação, registros de atuação e contato direto pelo WhatsApp. Identidade visual construída a partir da logo do escritório, feito para o celular e com política de privacidade alinhada à LGPD.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Design responsivo</span><span>Acessibilidade</span><span>GitHub Pages</span></div>
+            <a class="more" href="renan-mendes-advocacia/" target="_blank" rel="noopener">Visitar o site →</a>
+          </article>
+
+          <article class="proj rv">
+            <span class="case">#03</span>
             <h3>Lume, assistente pessoal de produtividade</h3>
             <span class="status live">No ar</span>
             <a class="shot" href="https://lume-assistente.streamlit.app" target="_blank" rel="noopener" aria-label="Abrir o Lume">
@@ -364,7 +438,22 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#03</span>
+            <span class="case">#04</span>
+            <h3>Triagem jurídica com IA</h3>
+            <span class="status live">Funcionando</span>
+            <a class="shot shot--fluxo" href="https://github.com/badolfr22-dot/badolfr22-dot.github.io/tree/main/projetos/triagem-juridica-n8n" target="_blank" rel="noopener" aria-label="Ver a documentação do fluxo de triagem jurídica no GitHub">
+              <picture>
+                <source srcset="img/triagem-juridica-n8n.webp" type="image/webp">
+                <img src="img/triagem-juridica-n8n.jpg" width="1630" height="360" alt="Fluxo no n8n: formulário de contato, classificação com o Claude e dois e-mails" loading="lazy">
+              </picture>
+            </a>
+            <p>Automação no n8n para um escritório de advocacia. O cliente conta o caso num formulário, o Claude identifica a área (criminal, previdenciário ou juizado especial cível) e resume o relato em três linhas, e o advogado recebe tudo organizado por e-mail. O cliente recebe na hora a confirmação de que o caso chegou.</p>
+            <div class="tags"><span>n8n</span><span>Claude (IA)</span><span>Gmail</span><span>Formulários</span><span>Automação</span></div>
+            <a class="more" href="https://github.com/badolfr22-dot/badolfr22-dot.github.io/tree/main/projetos/triagem-juridica-n8n" target="_blank" rel="noopener">Ver como funciona →</a>
+          </article>
+
+          <article class="proj rv">
+            <span class="case">#05</span>
             <h3>API de Reservas para pousadas</h3>
             <span class="status wip">Em construção</span>
             <p>API para cadastrar quartos e reservas. Impede reservar um quarto já ocupado nas mesmas datas e calcula o valor total da estadia. Com testes automatizados e documentação.</p>
@@ -383,7 +472,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#04</span>
+            <span class="case">#06</span>
             <h3>Coqueiro Verde, novo site</h3>
             <span class="status concept">Projeto conceito</span>
             <p>Proposta de redesign para uma pousada e restaurante na Ilha Grande, com fotos do próprio lugar, informações claras para o hóspede e foco total no celular.</p>
@@ -392,12 +481,45 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#05</span>
+            <span class="case">#07</span>
             <h3>Este site</h3>
             <span class="status live">No ar</span>
             <p>Meu portfólio, com céu de Gotham animado, sinal no céu que segue o mouse e morcegos que voam quando você clica. Leve, acessível e feito para o celular.</p>
             <div class="tags"><span>HTML</span><span>CSS</span><span>Canvas</span><span>JavaScript</span></div>
           </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block gut" id="laboratorio">
+    <div class="wrap">
+      <p class="label"><svg viewBox="28 20 144 66" aria-hidden="true"><path d="M100 36 L104 36 L107 24 L110 38 Q130 38 172 22 Q160 34 162 44 Q150 40 146 52 Q136 46 128 58 Q116 56 108 74 L100 84 L92 74 Q84 56 72 58 Q64 46 54 52 Q50 40 38 44 Q40 34 28 22 Q70 38 90 38 L93 24 L96 36 Z"/></svg>Laboratório</p>
+      <div>
+        <h2 class="rv">Uma automação por dentro.</h2>
+        <p class="note rv"><b>Demonstração simulada.</b> Mostra as etapas de um fluxo como a Triagem jurídica, mas a resposta é um exemplo montado aqui na própria página. Nenhum dado sai do seu navegador.</p>
+        <div class="lab rv">
+          <div class="panel">
+            <label class="mini" for="lab-text">1 · O pedido</label>
+            <textarea id="lab-text" rows="4" placeholder="Ex.: quero que os pedidos de reserva do WhatsApp caiam numa planilha com um resumo de cada um."></textarea>
+            <div class="chips">
+              <button class="chip" type="button" data-p="Quero que os casos que chegam pelo site do escritório sejam classificados por área e cheguem resumidos no meu e-mail.">Triagem jurídica</button>
+              <button class="chip" type="button" data-p="Quero que os pedidos de reserva da pousada que chegam pelo WhatsApp caiam numa planilha com datas e número de hóspedes.">Reservas da pousada</button>
+              <button class="chip" type="button" data-p="Quero receber toda segunda um resumo das vendas e pagamentos da semana, tirado da planilha financeira.">Resumo financeiro</button>
+            </div>
+            <p class="mini">2 · O fluxo</p>
+            <ol class="steps" aria-live="polite">
+              <li id="st1"><span>Formulário recebe o pedido</span><b>aguardando</b></li>
+              <li id="st2"><span>Claude entende e resume</span><b>aguardando</b></li>
+              <li id="st3"><span>n8n entrega o resultado</span><b>aguardando</b></li>
+            </ol>
+            <button class="btn primary" id="lab-run" type="button">Rodar demonstração</button>
+          </div>
+          <div class="code">
+            <div class="code-bar"><i></i><i></i><i></i><span>saida.json</span></div>
+<pre id="lab-json">// Escreva um pedido ou escolha um exemplo e clique em "Rodar demonstração".</pre>
+            <div class="term"><span id="lab-status">Pronto</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -424,6 +546,11 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
             <h3>IA no dia a dia</h3>
             <p>Mostro como usar inteligência artificial para responder clientes, criar textos e organizar tarefas, sem complicação.</p>
           </div>
+          <div class="svc rv" style="--d:270ms">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="6" height="5" rx="1.2"/><rect x="15.5" y="4" width="6" height="5" rx="1.2"/><rect x="9" y="15" width="6" height="5" rx="1.2"/><path d="M8.5 6.5h7M5.5 9v3.5h6.5V15M18.5 9v3.5H12"/></svg>
+            <h3>Automação com IA</h3>
+            <p>Fluxos no n8n que ligam formulário, e-mail, WhatsApp e planilha, com o Claude lendo, classificando e resumindo no meio do caminho. O trabalho repetitivo passa a acontecer sozinho.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -436,10 +563,47 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
         <h2 class="rv">Meu cinto de utilidades.</h2>
         <div class="belt rv">
           <div class="tools">
-            <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>IA generativa</span>
+            <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>n8n</span><span>Claude</span><span>IA generativa</span>
             <span class="next">SQL · estudando</span><span class="next">Docker · próximo passo</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block gut" id="orcamento">
+    <div class="wrap">
+      <p class="label"><svg viewBox="28 20 144 66" aria-hidden="true"><path d="M100 36 L104 36 L107 24 L110 38 Q130 38 172 22 Q160 34 162 44 Q150 40 146 52 Q136 46 128 58 Q116 56 108 74 L100 84 L92 74 Q84 56 72 58 Q64 46 54 52 Q50 40 38 44 Q40 34 28 22 Q70 38 90 38 L93 24 L96 36 Z"/></svg>Orçamento</p>
+      <div>
+        <h2 class="rv">Quanto custa o seu projeto?</h2>
+        <form class="calc rv" id="calc" onsubmit="return false">
+          <fieldset>
+            <legend class="mini">1 · Tipo de projeto</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="tipo" value="site" checked><strong>Site ou landing page</strong><small>a partir de R$ 1.000</small></label>
+              <label class="opt"><input type="radio" name="tipo" value="api"><strong>API em Python</strong><small>a partir de R$ 1.500</small></label>
+              <label class="opt"><input type="radio" name="tipo" value="auto"><strong>Automação com IA</strong><small>a partir de R$ 1.800</small></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="mini">2 · Extras</legend>
+            <div class="extras">
+              <label class="opt"><input type="checkbox" name="extra" value="design"><span class="box" aria-hidden="true"></span><span>Design exclusivo para o celular</span></label>
+              <label class="opt"><input type="checkbox" name="extra" value="ia"><span class="box" aria-hidden="true"></span><span>Integração com IA (Claude)</span></label>
+              <label class="opt"><input type="checkbox" name="extra" value="banco"><span class="box" aria-hidden="true"></span><span>Banco de dados</span></label>
+              <label class="opt"><input type="checkbox" name="extra" value="n8n"><span class="box" aria-hidden="true"></span><span>Automação no n8n</span></label>
+            </div>
+          </fieldset>
+          <div class="signal-box">
+            <div class="est" aria-live="polite">
+              <small>Estimativa</small>
+              <strong id="calc-price">R$ 1.000 a R$ 1.800</strong>
+              <span id="calc-time">Prazo estimado: 3 a 5 dias úteis</span>
+            </div>
+            <a class="btn primary" id="calc-wa" href="https://wa.me/5521974968560" target="_blank" rel="noopener">Falar sobre o projeto</a>
+          </div>
+          <p class="calc-foot">Valor aproximado para começar a conversa. O preço final depende do que o seu negócio precisa.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -646,7 +810,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
     }
   }
   document.addEventListener('click', function(e){
-    if (e.target.closest('a,button,#intro,input,.crow')) return;
+    if (e.target.closest('a,button,#intro,input,textarea,label,.crow')) return;
     burst(e.clientX, e.clientY, 6);
   });
 
@@ -713,6 +877,60 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
     say('Sinal aceso. Agora me chama no WhatsApp ou no e-mail.');
     if (reduce) drawSky(0);
   });
+
+  /* ---------- laboratório (demonstração simulada) ---------- */
+  var labText = document.getElementById('lab-text'), labRun = document.getElementById('lab-run'), labOut = document.getElementById('lab-json'), labStatus = document.getElementById('lab-status');
+  document.querySelectorAll('.chip').forEach(function(c){ c.addEventListener('click', function(){ labText.value = c.dataset.p; }); });
+  var KINDS = [
+    {re:/advog|jur[ií]d|processo|inss|escrit[oó]rio/i, cat:'Jurídico', etapas:['Formulário recebe o relato do cliente','Claude classifica a área do direito e resume em 3 linhas','Advogado recebe o caso organizado por e-mail','Cliente recebe a confirmação na hora'], ferr:['n8n','Claude','Gmail']},
+    {re:/reserva|pousada|quarto|h[oó]spede|mesa/i, cat:'Reservas', etapas:['Mensagem do WhatsApp chega ao fluxo','Claude separa datas, nome e número de hóspedes','Pedido vira uma linha na planilha','Dono recebe um aviso com o resumo'], ferr:['n8n','Claude','WhatsApp','Google Sheets']},
+    {re:/financ|venda|pagamento|planilha|relat[oó]rio/i, cat:'Financeiro', etapas:['Agendamento dispara toda segunda','n8n lê a planilha da semana','Claude escreve o resumo em linguagem simples','Resumo chega por e-mail'], ferr:['n8n','Claude','Google Sheets','Gmail']}
+  ];
+  var OUTRO = {cat:'Atendimento', etapas:['Pedido chega por formulário ou mensagem','Claude entende o pedido e resume','Responsável recebe tudo organizado','Cliente recebe resposta automática'], ferr:['n8n','Claude','E-mail']};
+  function wait(ms){ return new Promise(function(r){ setTimeout(r, reduce ? 60 : ms); }); }
+  function step(i, st){ var li = document.getElementById('st' + i); li.className = st; li.querySelector('b').textContent = st === 'on' ? 'rodando' : st === 'done' ? 'ok' : 'aguardando'; }
+  labRun.addEventListener('click', function(){
+    var txt = labText.value.trim();
+    if (!txt){ labOut.textContent = '// Escreva um pedido ou escolha um exemplo acima.'; labText.focus(); return; }
+    var k = OUTRO; for (var i = 0; i < KINDS.length; i++) if (KINDS[i].re.test(txt)){ k = KINDS[i]; break; }
+    labRun.disabled = true; labStatus.textContent = 'Rodando...'; labOut.textContent = '// processando...';
+    step(1, ''); step(2, ''); step(3, '');
+    var t0 = Date.now();
+    step(1, 'on');
+    wait(700).then(function(){ step(1, 'done'); step(2, 'on'); return wait(1100); })
+    .then(function(){ step(2, 'done'); step(3, 'on'); return wait(600); })
+    .then(function(){
+      step(3, 'done');
+      labOut.textContent = JSON.stringify({
+        simulacao: true,
+        categoria: k.cat,
+        pedido: txt.length > 140 ? txt.slice(0, 137).trim() + '...' : txt,
+        etapas: k.etapas,
+        ferramentas: k.ferr,
+        observacao: 'Exemplo montado na página. Num projeto real, o Claude escreve o resumo e o n8n executa cada etapa.'
+      }, null, 2);
+      labStatus.textContent = 'Concluído em ' + ((Date.now() - t0) / 1000).toFixed(1).replace('.', ',') + ' s';
+      labRun.disabled = false;
+    });
+  });
+
+  /* ---------- orçamento ---------- */
+  var calc = document.getElementById('calc');
+  var BASE = {site:[1000,1800,3,5], api:[1500,2500,4,7], auto:[1800,3200,5,9]};
+  var EXTRA = {design:[400,700,1,2], ia:[600,1000,2,3], banco:[500,800,1,2], n8n:[400,700,1,2]};
+  var NOME = {site:'um site ou landing page', api:'uma API em Python', auto:'uma automação com IA'};
+  var EXN = {design:'design exclusivo', ia:'integração com IA', banco:'banco de dados', n8n:'automação no n8n'};
+  function brl(n){ return 'R$ ' + n.toLocaleString('pt-BR'); }
+  function calcUpdate(){
+    var tipo = calc.querySelector('input[name="tipo"]:checked').value, v = BASE[tipo].slice(), ex = [];
+    calc.querySelectorAll('input[name="extra"]:checked').forEach(function(el){ var e = EXTRA[el.value]; for (var j = 0; j < 4; j++) v[j] += e[j]; ex.push(EXN[el.value]); });
+    document.getElementById('calc-price').textContent = brl(v[0]) + ' a ' + brl(v[1]);
+    document.getElementById('calc-time').textContent = 'Prazo estimado: ' + v[2] + ' a ' + v[3] + ' dias úteis';
+    var msg = 'Olá, Matheus! Fiz a simulação no seu site: ' + NOME[tipo] + (ex.length ? ', com ' + ex.join(', ') : '') + '. Deu entre ' + brl(v[0]) + ' e ' + brl(v[1]) + '. Podemos conversar?';
+    document.getElementById('calc-wa').href = 'https://wa.me/5521974968560?text=' + encodeURIComponent(msg);
+  }
+  calc.addEventListener('change', calcUpdate);
+  calcUpdate();
 
   /* ---------- copiar ---------- */
   document.querySelectorAll('.copy').forEach(function(btn){
