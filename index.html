@@ -160,6 +160,7 @@ section.block .wrap > *{min-width:0}
 .status.concept{color:var(--ink);border:1px solid var(--line);background:var(--plate)}
 .status.client{background:var(--signal);color:var(--night);box-shadow:0 0 0 4px var(--signal-soft),0 0 22px rgba(244,196,48,.45);font-weight:500}
 .shot{grid-column:2/-1;position:relative;display:block;margin-top:6px;border-radius:8px;overflow:hidden;border:1px solid var(--line);aspect-ratio:960/416;max-width:100%;background:var(--night)}
+.shot--reel{aspect-ratio:auto;width:100%;max-width:400px;height:760px;border:1px solid var(--line);background:#fff}
 .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s}
 .shot:hover img{transform:scale(1.04);filter:brightness(.75)}
 .shot-cta{position:absolute;right:12px;bottom:12px;font:500 .78rem var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--signal);color:var(--night);padding:7px 12px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
@@ -397,6 +398,15 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
         <div class="projects">
           <article class="proj rv">
             <span class="case">#01</span>
+            <h3>Operação Blindada, gestão no Google</h3>
+            <span class="status live">Produto próprio</span>
+            <iframe class="shot shot--reel" src="https://www.instagram.com/reel/DfDPp4EyOhS/embed/" title="Vídeo de 1 minuto mostrando a Operação Blindada funcionando" loading="lazy" allowtransparency="true" scrolling="no"></iframe>
+            <p>Sistema de gestão para pequenas empresas montado dentro do Google, sem mensalidade de software. A equipe registra vendas, despesas e chamados em formulários simples, e uma automação em Apps Script distribui os dados entre os setores: a venda fechada vira entrada no caixa, gera a tarefa de entrega e atualiza o painel do dono, com faturamento, conversão e saldo. A instalação é feita por script, que cria abas, formulários e automação de uma vez.</p>
+            <div class="tags"><span>Google Apps Script</span><span>JavaScript</span><span>Google Planilhas</span><span>Google Formulários</span><span>Automação</span></div>
+            <a class="more" href="#orcamento">Quero ver como ficaria na minha empresa →</a>
+          </article>
+          <article class="proj rv">
+            <span class="case">#02</span>
             <h3>Darling Diner, hamburgueria anos 50</h3>
             <span class="status client">✓ Cliente real</span>
             <a class="shot" href="https://badolfr22-dot.github.io/darling-diner/" target="_blank" rel="noopener" aria-label="Abrir o site da Darling Diner">
@@ -409,7 +419,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#02</span>
+            <span class="case">#03</span>
             <h3>Mercadinho Senninha, pedidos pelo WhatsApp</h3>
             <span class="status client">✓ Cliente real</span>
             <a class="shot" href="https://badolfr22-dot.github.io/mercadinho-senninha/" target="_blank" rel="noopener" aria-label="Abrir o site do Mercadinho Senninha">
@@ -425,7 +435,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#03</span>
+            <span class="case">#04</span>
             <h3>Renan Mendes Advocacia</h3>
             <span class="status client">✓ Cliente real</span>
             <a class="shot" href="renan-mendes-advocacia/" target="_blank" rel="noopener" aria-label="Abrir o site Renan Mendes Advocacia">
@@ -441,7 +451,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#04</span>
+            <span class="case">#05</span>
             <h3>Lume, assistente pessoal de produtividade</h3>
             <span class="status live">No ar</span>
             <a class="shot" href="https://lume-assistente.streamlit.app" target="_blank" rel="noopener" aria-label="Abrir o Lume">
@@ -454,7 +464,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#05</span>
+            <span class="case">#06</span>
             <h3>Triagem jurídica com IA</h3>
             <span class="status live">Funcionando</span>
             <a class="shot shot--fluxo" href="https://github.com/badolfr22-dot/badolfr22-dot.github.io/tree/main/projetos/triagem-juridica-n8n" target="_blank" rel="noopener" aria-label="Ver a documentação do fluxo de triagem jurídica no GitHub">
@@ -469,7 +479,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#06</span>
+            <span class="case">#07</span>
             <h3>API de Reservas para pousadas</h3>
             <span class="status wip">Em construção</span>
             <p>API para cadastrar quartos e reservas. Impede reservar um quarto já ocupado nas mesmas datas e calcula o valor total da estadia. Com testes automatizados e documentação.</p>
@@ -488,7 +498,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#07</span>
+            <span class="case">#08</span>
             <h3>Coqueiro Verde, novo site</h3>
             <span class="status concept">Projeto conceito</span>
             <p>Proposta de redesign para uma pousada e restaurante na Ilha Grande, com fotos do próprio lugar, informações claras para o hóspede e foco total no celular.</p>
@@ -497,7 +507,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#08</span>
+            <span class="case">#09</span>
             <h3>Este site</h3>
             <span class="status live">No ar</span>
             <p>Meu portfólio, com céu de Gotham animado, sinal no céu que segue o mouse e morcegos que voam quando você clica. Leve, acessível e feito para o celular.</p>
@@ -567,6 +577,11 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
             <h3>Automação com IA</h3>
             <p>Fluxos no n8n que ligam formulário, e-mail, WhatsApp e planilha, com o Claude lendo, classificando e resumindo no meio do caminho. O trabalho repetitivo passa a acontecer sozinho.</p>
           </div>
+          <div class="svc rv" style="--d:360ms;grid-column:1/-1">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <h3>Gestão automatizada no Google</h3>
+            <p>A Operação Blindada: vendas, caixa, tarefas e um painel para o dono, tudo em Planilhas e Formulários do Google, atualizando sozinho e sem mensalidade.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -579,7 +594,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
         <h2 class="rv">Meu cinto de utilidades.</h2>
         <div class="belt rv">
           <div class="tools">
-            <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>n8n</span><span>Claude</span><span>IA generativa</span>
+            <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Google Apps Script</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>n8n</span><span>Claude</span><span>IA generativa</span>
             <span class="next">SQL · estudando</span><span class="next">Docker · próximo passo</span>
           </div>
         </div>
