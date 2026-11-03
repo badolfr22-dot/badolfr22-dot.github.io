@@ -6,7 +6,7 @@ Meu site pessoal, publicado com GitHub Pages.
 
 ## Sobre
 
-Sou desenvolvedor em formação, com base em Python e desenvolvimento web. Faço sites para pequenos negócios e profissionais liberais, como escritórios, pousadas, restaurantes e comércios locais, e uso inteligência artificial para facilitar o dia a dia de quem não tem tempo para tecnologia.
+Sou desenvolvedor Python e web, com foco em automação e inteligência artificial. Construo APIs, automações com IA (n8n e Claude) e sites para pequenos negócios e profissionais liberais, como escritórios, pousadas, restaurantes e comércios locais.
 
 ## Sobre este projeto
 
@@ -23,3 +23,4 @@ Não precisa instalar nada. Basta baixar o repositório e abrir o arquivo `index
 
 - E-mail: badolfr22@gmail.com
 - GitHub: [@badolfr22-dot](https://github.com/badolfr22-dot)
+- LinkedIn: [matheus-paulino-a9a313444](https://www.linkedin.com/in/matheus-paulino-a9a313444)

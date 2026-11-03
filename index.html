@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Matheus, desenvolvedor web: sites que trazem cliente, não só visita. Python, FastAPI e IA.">
+<meta name="description" content="Matheus Paulino, desenvolvedor Python e web: APIs, automação com IA e sites para pequenos negócios.">
 <meta property="og:title" content="Matheus Dev">
 <meta property="og:description" content="Gotham tem o Batman. Seu negócio tem o Matheus.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -407,6 +407,24 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
           <article class="proj rv">
             <span class="case">#02</span>
+            <h3>Triagem IA, API de atendimento</h3>
+            <span class="status live">Código aberto</span>
+            <p>API que recebe mensagens de clientes vindas do WhatsApp, site, e-mail ou Instagram, usa o Claude para classificar cada uma por assunto e urgência e guarda tudo num banco SQL. O dono do negócio filtra o que é urgente e acompanha um relatório. Se a IA ficar fora do ar ou responder fora do padrão, um classificador por regras assume e o atendimento não para. Testes automatizados rodam no GitHub Actions a cada atualização.</p>
+            <div class="code" role="img" aria-label="Trecho de código Python: a API recebe a mensagem, classifica com IA e salva no banco; a resposta mostra uma reclamação marcada como urgência alta">
+              <div class="code-bar"><i></i><i></i><i></i><span>triagem-ia-api/app/main.py</span></div>
+<pre><span class="k">@app.post</span>(<span class="s">"/mensagens"</span>, status_code=<span class="s">201</span>)
+<span class="k">def</span> criar_mensagem(entrada: NovaMensagem):
+    <span class="cm"># IA classifica; se falhar, as regras assumem</span>
+    resultado = classificar(entrada.texto)
+    <span class="k">return</span> database.inserir_mensagem({**entrada.model_dump(), **resultado})</pre>
+              <div class="term" aria-hidden="true"><span>"Fui cobrado errado" →</span><span class="res no">reclamação · urgência alta</span></div>
+            </div>
+            <div class="tags"><span>Python</span><span>FastAPI</span><span>Claude (IA)</span><span>SQL</span><span>SQLite</span><span>pytest</span><span>Docker</span><span>GitHub Actions</span></div>
+            <a class="more" href="https://github.com/badolfr22-dot/triagem-ia-api" target="_blank" rel="noopener">Ver o código no GitHub →</a>
+          </article>
+
+          <article class="proj rv">
+            <span class="case">#03</span>
             <h3>Darling Diner, hamburgueria anos 50</h3>
             <span class="status client">✓ Cliente real</span>
             <a class="shot" href="https://badolfr22-dot.github.io/darling-diner/" target="_blank" rel="noopener" aria-label="Abrir o site da Darling Diner">
@@ -419,7 +437,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#03</span>
+            <span class="case">#04</span>
             <h3>Mercadinho Senninha, pedidos pelo WhatsApp</h3>
             <span class="status client">✓ Cliente real</span>
             <a class="shot" href="https://badolfr22-dot.github.io/mercadinho-senninha/" target="_blank" rel="noopener" aria-label="Abrir o site do Mercadinho Senninha">
@@ -435,7 +453,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#04</span>
+            <span class="case">#05</span>
             <h3>Renan Mendes Advocacia</h3>
             <span class="status client">✓ Cliente real</span>
             <a class="shot" href="renan-mendes-advocacia/" target="_blank" rel="noopener" aria-label="Abrir o site Renan Mendes Advocacia">
@@ -451,7 +469,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#05</span>
+            <span class="case">#06</span>
             <h3>Lume, assistente pessoal de produtividade</h3>
             <span class="status live">No ar</span>
             <a class="shot" href="https://lume-assistente.streamlit.app" target="_blank" rel="noopener" aria-label="Abrir o Lume">
@@ -464,7 +482,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#06</span>
+            <span class="case">#07</span>
             <h3>Triagem jurídica com IA</h3>
             <span class="status live">Funcionando</span>
             <a class="shot shot--fluxo" href="https://github.com/badolfr22-dot/badolfr22-dot.github.io/tree/main/projetos/triagem-juridica-n8n" target="_blank" rel="noopener" aria-label="Ver a documentação do fluxo de triagem jurídica no GitHub">
@@ -479,7 +497,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#07</span>
+            <span class="case">#08</span>
             <h3>API de Reservas para pousadas</h3>
             <span class="status wip">Em construção</span>
             <p>API para cadastrar quartos e reservas. Impede reservar um quarto já ocupado nas mesmas datas e calcula o valor total da estadia. Com testes automatizados e documentação.</p>
@@ -498,7 +516,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#08</span>
+            <span class="case">#09</span>
             <h3>Coqueiro Verde, novo site</h3>
             <span class="status concept">Projeto conceito</span>
             <p>Proposta de redesign para uma pousada e restaurante na Ilha Grande, com fotos do próprio lugar, informações claras para o hóspede e foco total no celular.</p>
@@ -507,7 +525,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           </article>
 
           <article class="proj rv">
-            <span class="case">#09</span>
+            <span class="case">#10</span>
             <h3>Este site</h3>
             <span class="status live">No ar</span>
             <p>Meu portfólio, com céu de Gotham animado, sinal no céu que segue o mouse e morcegos que voam quando você clica. Leve, acessível e feito para o celular.</p>
@@ -594,8 +612,8 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
         <h2 class="rv">Meu cinto de utilidades.</h2>
         <div class="belt rv">
           <div class="tools">
-            <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Google Apps Script</span><span>FastAPI</span><span>Git</span><span>GitHub</span><span>n8n</span><span>Claude</span><span>IA generativa</span>
-            <span class="next">SQL · estudando</span><span class="next">Docker · próximo passo</span>
+            <span>Python</span><span>FastAPI</span><span>SQL</span><span>SQLite</span><span>PostgreSQL</span><span>pytest</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Google Apps Script</span><span>Git</span><span>GitHub</span><span>GitHub Actions</span><span>n8n</span><span>Claude</span><span>IA generativa</span>
+            <span class="next">Docker · estudando</span>
           </div>
         </div>
       </div>
@@ -645,7 +663,7 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
       <div>
         <h2 class="rv">Precisa de mim? Acenda o sinal.</h2>
         <div class="signal-box rv">
-          <p>Orçamento de site, vaga ou parceria: me chama que eu respondo rápido. Antes, aperta o botão e veja o que acontece no céu.</p>
+          <p>Orçamento de site, automação com IA, vaga home office ou projeto PJ: me chama que eu respondo rápido. Antes, aperta o botão e veja o que acontece no céu.</p>
           <button class="btn primary" id="call" type="button"><svg viewBox="28 20 144 66" aria-hidden="true"><path d="M100 36 L104 36 L107 24 L110 38 Q130 38 172 22 Q160 34 162 44 Q150 40 146 52 Q136 46 128 58 Q116 56 108 74 L100 84 L92 74 Q84 56 72 58 Q64 46 54 52 Q50 40 38 44 Q40 34 28 22 Q70 38 90 38 L93 24 L96 36 Z" fill="currentColor"/></svg>Acender o sinal</button>
         </div>
         <div class="contact-list rv">
@@ -656,6 +674,10 @@ footer .wrap span{font-family:var(--mono);font-size:.8rem}
           <div class="crow">
             <div><small>E-mail</small><span class="val" id="c-mail">badolfr22@gmail.com</span></div>
             <button class="copy" type="button" data-target="c-mail">Copiar</button>
+          </div>
+          <div class="crow">
+            <div><small>LinkedIn</small><a class="val" id="c-li" href="https://www.linkedin.com/in/matheus-paulino-a9a313444" target="_blank" rel="noopener">linkedin.com/in/matheus-paulino-a9a313444</a></div>
+            <button class="copy" type="button" data-target="c-li">Copiar</button>
           </div>
           <div class="crow">
             <div><small>GitHub</small><a class="val" id="c-gh" href="https://github.com/badolfr22-dot" target="_blank" rel="noopener">github.com/badolfr22-dot</a></div>
